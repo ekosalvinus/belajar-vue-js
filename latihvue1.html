@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRM CU Pancur Kasih</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 5%;
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="app">
+        <header>
+            <img src="images/vuejs.png" width="20%">
+            <!-- <h1>{{ name.toUpperCase() }}</h1> untuk membuat capital semua-->
+            <!-- <h1 v-once>{{ isactive ? 'success' : 'danger'}}</h1> -->
+            <!-- <h1> {{namaLengkap}} </h1> -->
+            <h1 v-html="link"></h1>
+            <h1 v-text="name"></h1>
+            <p>Bilangan ini adalah bilangan {{ infoBilangan }}</p>
+            <img v-bind:src="gambar" width="20%"> <!-- v-bind: dengan syntax lengkap-->
+            <img :src="gambarclo" width="20%"> <!-- contoh v-bind: dengan syntax singkat-->
+            <h3>Selamat datang, {{namesaja()}}</h3>
+            <p>Aplikasi HRM CU Pancur Kasih dengan Golang & Vue JS. <br>
+            Aplikasi ini digunakan untuk mengatur data karyawan KSP CU Pancur Kasih</p>
+           
+        </header>
+    
+        <footer id="footer">
+            <p>copyright 2022</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"> </script>
+    <script>
+        const vm = new Vue({
+           el: '#app',
+           data: {
+               name: 'Andy Dorner',
+               message: "Halo dunia..!",
+               qty: 5,
+               namaDepan: 'Eko',
+               namaBelakang: 'Salvinus' ,
+               bilangan: 3,
+               link: '<a href="indexvue.html">Home</a>',
+               gambar: 'images/golang.png',
+               gambarclo: 'images/clojure.png'
+           },
+           methods: {
+               getname: function(){
+                   return 'Hello, ' +this.name
+               },
+               namesaja: function(){
+                   return this.name
+               },
+               ubahNama: function(namaBaru){
+                   this.name = namaBaru
+                   return this.getname()
+               }
+           },
+           computed: {
+              totalBayar: function(){
+                  return this.qty * 12500
+              }, 
+              namaLengkap: function(){
+                  return this.namaDepan + this.namaBelakang
+              },
+              infoBilangan: function() {
+                return this.bilangan%2 === 0 ? 'Genap' : 'Ganjil'
+
+              }
+           }
+       });
+    </script>
+</body>
+</html>

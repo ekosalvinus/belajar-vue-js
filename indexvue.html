@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRM CU Pancur Kasih</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 5%;
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="app">
+        <header>
+            <img src="images/vuejs.png" width="20%">
+            <!-- <h1>{{ name.toUpperCase() }}</h1> -->
+            <!-- <h1 v-once>{{ isactive ? 'success' : 'danger'}}</h1> -->
+            <h1> {{getname()}} </h1>
+            <h3>Selamat datang, {{namesaja()}}</h3>
+            <p>Aplikasi HRM CU Pancur Kasih dengan Golang & Vue JS. Aplikasi ini digunakan untuk mengatur data karyawan KSP CU Pancur Kasih</p>
+           
+        </header>
+    
+        <footer id="footer">
+            <p>copyright 2022</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"> </script>
+    <script>
+        const member = {
+            name: "Andy Dorner",
+            message: "Halo dunia..!",
+            isactive: true
+        }
+
+        const vm = new Vue({
+           el: '#app',
+           data: member,
+           methods: {
+               getname: function(){
+                   return 'Hello, ' +this.name
+               },
+               namesaja: function(){
+                   return this.name
+               },
+               ubahNama: function(namaBaru){
+                   this.name = namaBaru
+                   return this.getname()
+               }
+           },
+           computed: {
+               
+           }
+       });
+    </script>
+</body>
+</html>
