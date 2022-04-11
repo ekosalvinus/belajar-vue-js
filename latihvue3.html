@@ -44,12 +44,10 @@
             <br>
             
             <h3>Daftar Kelas ({{ kelas.length }})</h3>
-            <template v-if="kelas.length >= 1">
-            <ul>
+            <ul v-show="kelas.length >= 1">
                 <li v-for="(item, index) of kelas">{{ index+1 }} - {{ item }}</li>
             </ul>
-            </template>
-            <li v-else>Kelas Belum Tersedia</li>
+            
 
             <p><input type="text" v-model="name"></p>
             <p>{{ kelas }}</p>
@@ -102,8 +100,8 @@
                gambar: 'images/golang.png',
                gambarclo: 'images/clojure.png',
                menu: 'home',
-               kelas: ['Python', 'Ruby', 'Golang'],
-               //kelas: [],
+               //kelas: ['Python', 'Ruby', 'Golang'],
+               kelas: [],
                numbers: [1, 2, 3, 4, 5]
            },
            methods: {
